@@ -1,0 +1,56 @@
+﻿# Dependências
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Builds nativos gerados (se usar expo prebuild)
+# Caso prefira versionar o código nativo, comente as duas linhas abaixo:
+/android
+/ios
+
+# Binários e pacotes gerados
+*.apk
+*.aab
+*.ipa
+
+# Chaves de assinatura e certificados
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.keystore
+
+# Variáveis de ambiente e segredos
+.env
+.env*.local
+
+# Cobertura de testes e relatórios
+coverage/
+.nyc_output/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Configurações de IDEs
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Arquivos temporários e backups locais
+*.zip
+*.tar.gz
+*.swp
+*.bak

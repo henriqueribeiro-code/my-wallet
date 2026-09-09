@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "My Wallet",
+    "slug": "my-wallet",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "mywallet",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#1E1424"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mywallet.app"
+    },
+    "android": {
+      "package": "com.mywallet.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#1E1424"
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fc84e6dd-4ec1-4aac-a616-961b20e39758"
+      }
+    },
+    "owner": "henriqueribeirocode"
+  }
+}
