@@ -51,26 +51,3 @@ src/
   screens/                  Hoje, Extrato, Novo, Ajustes
   navigation/               abas
 ```
-
-### Decisões técnicas
-
-**Dinheiro em centavos (`INTEGER`).** `0.1 + 0.2 !== 0.3` — em app financeiro isso vira centavo perdido. Float só aparece em `formatCents`, na borda da interface.
-
-**Datas sem `toISOString()`.** Esse método converte para UTC; uma compra às 22h em Brasília seria gravada no dia seguinte. `src/utils/date.ts` formata sempre em horário local.
-
-**Agregação no SQLite, não no JS.** Saldo, totais do ciclo, gasto do dia e ranking de categorias saem de queries com `SUM`/`GROUP BY`. Trazer 5 mil linhas para somar em JavaScript não escala e trava a lista.
-
-**Migrations versionadas.** `PRAGMA user_version` controla o que já rodou, e cada migration sobe dentro de uma transação. Para evoluir o schema, acrescente uma função ao array `MIGRATIONS` — nunca edite uma já publicada.
-
-**Regra de negócio isolada.** `dailyBudget.ts` não importa React nem SQLite, então dá para testar sem emulador e sem mock.
-
-## O que dá para acrescentar depois
-
-- Exportar CSV com `expo-file-system` + `expo-sharing`
-- Lançamentos recorrentes (nova tabela + geração no boot)
-- Metas por categoria, com aviso ao registrar
-- Backup cifrado com `expo-secure-store` para a chave
-
-## Observação
-
-`Intl.NumberFormat` é usado na formatação. O Hermes do Expo SDK 51 já traz Intl completo; se você fizer downgrade para uma versão antiga do RN, troque `src/utils/money.ts` por formatação manual.
